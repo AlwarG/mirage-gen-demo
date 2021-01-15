@@ -2,7 +2,7 @@
 
 module.exports = function(environment) {
   let ENV = {
-    modulePrefix: 'mirge-gen-demo',
+    modulePrefix: 'mirage-gen-demo',
     environment,
     rootURL: '/',
     locationType: 'auto',
