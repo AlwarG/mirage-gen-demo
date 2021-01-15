@@ -1,5 +1,33 @@
-{{!-- The following component displays Ember's default welcome message. --}}
-{{welcome-page}}
-{{!-- Feel free to remove this! --}}
+<div class="d-flex">
+  <div>
+    <p>The demo for Ember Mirage Gen</p>
+    <button {{action "getUsers"}}>Get Users</button>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Phone</th>
+          <th>Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#if this.isLoading}}
+          <tr>Loading......</tr>
+        {{else}}
+          {{#each this.users as |user|}}
+            <tr>
+              <td>{{user.name}}</td>
+              <td>{{user.phone}}</td>
+              <td>{{user.email}}</td>
+            </tr>
+          {{/each}}
+        {{/if}}
+      </tbody>
+    </table>
+    <p>Note: For comparision try address(For factory) and company(For fixture) node</p>
+  </div>
+  <MirageGen />
+</div>
+
 
 {{outlet}}

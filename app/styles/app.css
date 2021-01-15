@@ -1,0 +1,28 @@
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 70%;
+}
+
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+.mirage-api-container {
+  position: fixed;
+  top: 0px;
+}
+.mirage-gen-search-input {
+  height: 15px;
+}
