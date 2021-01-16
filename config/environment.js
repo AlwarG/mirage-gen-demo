@@ -49,7 +49,7 @@ module.exports = function(environment) {
 
   if (environment === 'production') {
     // here you can enable a production-specific feature
-    ENV.baseURL = 'https://alwarg.github.io/mirage-gen-demo';
+    ENV.baseURL = '/mirage-gen-demo';
   }
 
   return ENV;
