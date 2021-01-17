@@ -31,6 +31,38 @@
         </tbody>
       </table>
       <p>Note: For comparision try address(For factory) and company(For fixture) node</p>
+
+      <h1>comparision Example</h1>
+      <u>Address Factory:</u>
+      <pre>
+  import { Factory, faker } from 'ember-cli-mirage';
+
+  export default Factory.extend({
+    street:faker.random.word(),
+    suite: faker.random.word(),
+    city: faker.random.word()
+  });
+      </pre>
+      <u>Address Node:</u>
+      <pre>
+  {
+    street: '########',
+    suite: '########',
+    city: '########',
+    zipcode: '########',
+    geo: '########'
+  }
+      </pre>
+      <u>Output</u>
+      <pre>
+  import { Factory, faker } from 'ember-cli-mirage';
+
+  export default Factory.extend({
+    zipcode: faker.address.zipCode(),
+    geo: faker.hacker.noun()
+  });
+      </pre>
+      Here street, suite and city nodes are removed. Becuase these nodes are already present in the factory.
     {{/if}}
     {{#if (equal this.method "post")}}
       <form>
