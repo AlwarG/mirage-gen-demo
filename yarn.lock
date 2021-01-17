@@ -3833,10 +3833,10 @@ ember-maybe-import-regenerator@^0.1.6:
     ember-cli-babel "^6.0.0-beta.4"
     regenerator-runtime "^0.9.5"
 
-ember-mirage-gen@^0.0.3:
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/ember-mirage-gen/-/ember-mirage-gen-0.0.3.tgz#49e59b70e7d6c605ee38be1a90d9f76daf9c3e0f"
-  integrity sha512-XnYzEyj+QzEjXi+HS4tYyGUXpS/Y9+GWQsGV2nUKzbxFS16xd+xUbjVoxWftbFJd4gtCyqm++R4/xYPbrxBUSg==
+ember-mirage-gen@^0.0.4:
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/ember-mirage-gen/-/ember-mirage-gen-0.0.4.tgz#c72c12e3cc9fe235793d0af36c9d7074efbcac65"
+  integrity sha512-X3iJwXsbyYEwBHAJcrkSeXXm0e5XricgW1fGa4JuzegaUVAQeBt3PQlNKWQYzzYQ+jwifJEQ+ehkjwHKZ5vgcQ==
   dependencies:
     broccoli-file-creator "^2.1.1"
     broccoli-merge-trees "^3.0.2"
@@ -3844,7 +3844,6 @@ ember-mirage-gen@^0.0.3:
     ember-cli-htmlbars "^3.0.0"
     ember-cli-sass "^10.0.1"
     sass "^1.26.10"
-    xhook "1.4.9"
 
 ember-qunit@^3.4.1:
   version "3.5.3"
@@ -8425,11 +8424,6 @@ xdg-basedir@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/xdg-basedir/-/xdg-basedir-3.0.0.tgz#496b2cc109eca8dbacfe2dc72b603c17c5870ad4"
   integrity sha1-SWsswQnsqNus/i3HK2A8F8WHCtQ=
-
-xhook@1.4.9:
-  version "1.4.9"
-  resolved "https://registry.yarnpkg.com/xhook/-/xhook-1.4.9.tgz#5ebca6c7f239003c311b746b889081a82e9d4e78"
-  integrity sha512-7uGTRzCO1nMNtzClV0LHSo13vKlr7J9JE6njIMWHDSoub6MLOmam2OgZJESTvGjZpW68gnD69vlRipB6cjM0dg==
 
 xmldom@^0.1.19:
   version "0.1.31"
