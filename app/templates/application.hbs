@@ -1,30 +1,67 @@
 <div class="d-flex">
   <div>
-    <p>The demo for Ember Mirage Gen</p>
-    <button {{action "getUsers"}}>Get Users</button>
-    <table>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Phone</th>
-          <th>Email</th>
-        </tr>
-      </thead>
-      <tbody>
-        {{#if this.isLoading}}
-          <tr>Loading......</tr>
-        {{else}}
-          {{#each this.users as |user|}}
-            <tr>
-              <td>{{user.name}}</td>
-              <td>{{user.phone}}</td>
-              <td>{{user.email}}</td>
-            </tr>
-          {{/each}}
-        {{/if}}
-      </tbody>
-    </table>
-    <p>Note: For comparision try address(For factory) and company(For fixture) node</p>
+    <div class="nav-bar">
+      <button class="nav-item {{if (equal this.method "get") "active"}}" {{action "showAPIMethod" "get"}}>GET</button>
+      <button class="nav-item {{if (equal this.method "post") "active"}}" {{action "showAPIMethod" "post"}}>POST</button>
+      <button class="nav-item {{if (equal this.method "put") "active"}}" {{action "showAPIMethod" "put"}}>PUT</button>
+    </div>
+    <p>The demo for Ember Mirage Gen({{this.method}})</p>
+    {{#if (equal this.method "get")}}
+      <button {{action "getUsers"}}>Get Users</button>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Email</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#if this.isLoading}}
+            <tr>Loading......</tr>
+          {{else}}
+            {{#each this.users as |user|}}
+              <tr>
+                <td>{{user.name}}</td>
+                <td>{{user.phone}}</td>
+                <td>{{user.email}}</td>
+              </tr>
+            {{/each}}
+          {{/if}}
+        </tbody>
+      </table>
+      <p>Note: For comparision try address(For factory) and company(For fixture) node</p>
+    {{/if}}
+    {{#if (equal this.method "post")}}
+      <form>
+        <section>
+          <label for="title">Title</label>
+          <input name="title" value={{this.title}} onchange={{action "updateValue" "title"}}>
+        </section>
+        <br>
+        <section>
+          <label for="body">Body</label>
+          <input name="body" value={{this.body}} onchange={{action "updateValue" "body"}}>
+        </section>
+        <br>
+        <button type="button" {{action "makPostCall"}}>{{if this.isLoading "Saving" "Save"}}</button>
+      </form>
+    {{/if}}
+    {{#if (equal this.method "put")}}
+      <form>
+        <section>
+          <label for="title">Title</label>
+          <input name="title" value={{this.putTitle}} onchange={{action "updateValue" "putTitle"}}>
+        </section>
+        <br>
+        <section>
+          <label for="body">Body</label>
+          <input name="body" value={{this.putBody}} onchange={{action "updateValue" "putBody"}}>
+        </section>
+        <br>
+        <button type="button" {{action "makPutCall"}}>{{if this.isLoading "Updating" "update"}}</button>
+      </form>
+    {{/if}}
   </div>
   <MirageGen />
 </div>
