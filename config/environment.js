@@ -50,6 +50,7 @@ module.exports = function(environment) {
   if (environment === 'production') {
     // here you can enable a production-specific feature
     ENV.baseURL = '/mirage-gen-demo';
+    ENV.rootURL = '/mirage-gen-demo';
   }
 
   return ENV;
