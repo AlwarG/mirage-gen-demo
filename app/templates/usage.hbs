@@ -1,0 +1,36 @@
+<p class="ms-2">Please follow the below steps</p>
+<ol>
+  <li>
+    <b>Installation:</b>
+    <pre class="bg-light p-3">ember install ember-mirage-gen</pre>
+  </li>
+  <li>
+    Add the following code to the application.hbs
+    <pre class="bg-light p-3">{{this.tag}}</pre>
+  </li>
+  <li>
+    In your <b>config/environment.js</b>, add an ember-mirage-gen object as below.
+    <pre class="bg-light p-3">
+// config/environment.js
+let ENV = {
+  'ember-mirage-gen': {
+    isEnabled: environment === 'development', // Mandatory
+    isOnlyForCurrentDomain: true, // optional
+    excludedNodes: [] // optional
+  }
+};
+    </pre>
+    <ul class="mb-2">
+      <li><b>isEnabled</b> - it works only when this node is true</li>
+      <li><b>isOnlyForCurrentDomain</b> - Allow only the same domain API's.</li>
+      <li><b>excludedNodes</b> - sometimes we got the same node for all responses and we don't need the mirage information for those nodes. So, we can exclude those nodes by adding those nodes to this array. example: <b>page-info</b> contains page information</li>
+    </ul>
+  </li>
+  <li>
+    Visit the app and click the mirage-gen icon, you will see the list of API's as below.
+    <br>
+    <br>
+    <div class="text-center"><img src="https://i.imgur.com/Lfsx51V.png" alt="list-APIs" class="img-fluid" width="83%"></div>
+  </li>
+</ol>
+{{outlet}}

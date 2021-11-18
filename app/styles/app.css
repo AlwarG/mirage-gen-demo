@@ -1,4 +1,4 @@
-table {
+/* table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
   width: 70%;
@@ -65,4 +65,13 @@ pre {
   border-radius: 5px;
   max-height: 200px;
   overflow: scroll;
+} */
+
+.nav-btn:hover {
+  background-color: #ed5e3b26;
+}
+
+li .nav-btn.active {
+  background-color: #ed5e3b;
+  color: #fff;
 }

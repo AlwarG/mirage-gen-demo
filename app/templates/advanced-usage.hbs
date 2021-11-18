@@ -1,0 +1,57 @@
+<p>Sometimes we come across the case of adding some properties to the existing file. For that case, we can compare our output node with the existing file.</p>
+
+<b>Example:</b>
+<br>
+we have the following file.
+<pre class="bg-light p-3">
+import { Factory, faker } from 'ember-cli-mirage';
+
+let myFactory = Factory.extend({
+  id() {
+    return faker.random.number();
+  },
+  myNumber() {
+    return faker.random.number();
+  }
+});
+
+export default myFactory;
+
+</pre>
+We got the output as 
+<pre class="bg-light p-3">
+{
+   id: #####,
+   myNumber: #####,
+   name: ####
+}
+</pre>
+
+We want to add the name node in our file. Fo that we have provided the option of <b>Compare and generate the missed nodes.</b> Once we click that option, it will list down the list of available files. After choosing the specific file, it will give the output as below.
+<pre class="bg-light p-3">
+{
+    name: faker.random.name()
+}
+</pre>
+
+<h3>How does it work?</h3>
+<p>We need to give the $MirageSection-Start$ for the starting line and $MirageSection-End$ for the ending line in between the code blocks.</p>
+<strong>Example:</strong>
+<br>
+<pre class="bg-light p-3">
+import { Factory, faker } from 'ember-cli-mirage';
+
+let myFactory = Factory.extend({
+ // $MirageSection-Start$
+  id() {
+    return faker.random.number();
+  },
+  myNumber() {
+    return faker.random.number();
+  }
+  // $MirageSection-End$
+});
+
+export default myFactory;
+
+</pre>

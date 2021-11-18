@@ -1,0 +1,35 @@
+<p>Click the below button and explore</p>
+<button type="button" {{on "click" this.getUsers}} class="btn btn-primary">Get Users</button>
+<table class="table">
+  <thead class="rounded">
+    <tr>
+      <th>Name</th>
+      <th>Phone</th>
+      <th>Email</th>
+      <th>Address</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#if this.isLoading}}
+      <tr>Loading......</tr>
+    {{else}}
+      {{#each this.users as |user|}}
+        <tr>
+          <td>{{user.name}}</td>
+          <td>{{user.phone}}</td>
+          <td>{{user.email}}</td>
+          <td>
+            <section>
+              {{#each user.addressArr as |addressPoint|}}
+                <p>
+                  <strong>{{addressPoint.key}}:</strong>
+                  <span class="text-muted">{{addressPoint.value}}</span>
+                </p>
+              {{/each}}
+            </section>
+          </td>
+        </tr>
+      {{/each}}
+    {{/if}}
+  </tbody>
+</table>

@@ -1,0 +1,84 @@
+Consider we have the following API
+<br><br>
+<pre class="bg-light p-3">
+ request = 'https://sample/studentdata';
+  response = {
+            student: {
+                'personal-data': {
+                  name: 'myname',
+                  age: 12
+                },
+                'educational-data': {
+                   marks: 98,
+                   section: 'B'
+                }
+             }
+            }
+</pre>
+The output for this response as
+<br><br>
+<div class="text-center"><img src="https://i.imgur.com/X2pIfgr.png" alt="config-settings" class="img-fluid" width="83%"></div>
+<br><br>Here we can view the response as well as the output configuration settings. The output configuration settings used to select the type of DB
+we want. It has three sections of selection.
+<ol>
+  <li>Fixture</li>
+  <li>Factory</li>
+  <li>Normal</li>
+</ol>
+After selecting the option, we should click the <b>Generate Info</b> button.
+<br>
+<b>Note:</b> if the node is normal, then it will be included in the config file section.
+<br>
+ <b>Generate Info</b> will take into complete mirage section.
+ 
+ This section has three parts.
+ <ol>
+   <li>Config part</li>
+   <li>DB(DataBase) Part</li>
+   <li>Test Part</li>
+ </ol>
+<div class="text-center"><img src="https://i.imgur.com/5PBVm0m.png" alt="structure" class="img-fluid" width="83%"></div>
+<h3>1. config Part:</h3>
+     As we know this part(config.js file) has the API endpoints.
+<h6>Example:</h6>
+<pre class="bg-light p-3">
+this.get('https://sample/studentdata', function(schema, request) {
+      return {
+            student: {
+		'personal-data': // Type your factory,
+                'educational-data': // Type your fixture
+	    }
+	}
+ });
+</pre>
+<h3>2. DB part:</h3>
+     It contains two sections.
+     <ol>
+       <li>Factory</li>
+       <li>Fixture</li>
+     </ol>
+<h5>1. Factory:</h5>
+      It will generate the factory section for a specific node. For the personal-data node, it will give the factory section as
+<pre class="bg-light p-3">
+import { Factory, faker } from 'ember-cli-mirage';
+
+export default Factory.extend({
+   name: faker.name.findName(),
+   age: faker.random.number()
+});
+</pre>
+<h5>2. Fixture:</h5>
+For the educational-data node, it will give the fixture section as
+<pre class="bg-light p-3">
+export default {
+     marks: 98,
+     section: 'B'
+ }
+</pre>
+<h3>3.Test part:</h3>
+It has the creation list of factories as well as fixtures like in the Ember test file. For the above object, it will give the test section as
+<pre class="bg-light p-3">
+ server.create('personal-data');
+ server.loadFixtures('educational-data');
+</pre>
+{{outlet}}
